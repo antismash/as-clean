@@ -7,7 +7,7 @@ short_description = "antiSMASH web service job cleanup script"
 long_description = open('README.md').read()
 
 install_requires = [
-    'antismash-models >= 0.1.8',
+    'antismash-models >= 0.1.9',
     'redis',
 ]
 
