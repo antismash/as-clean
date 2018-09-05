@@ -12,13 +12,14 @@ from .core import run
 def main():
     """Parse the command line, connect to the database, delete old entries"""
     default_db = os.getenv('ASCLEAN_DB', "redis://localhost:6379/0")
+    default_workdir = os.getenv('ASCLEAN_WORKDIR', "upload")
     parser = argparse.ArgumentParser()
     parser.add_argument('--db',
             help="URI of the database containing the job queue (default: %(default)s)",
             default=default_db)
     parser.add_argument('-w', '--workdir',
             help="Path to working directory that contains the uploaded sequences (default: %(default)s)",
-            default="upload")
+            default=default_workdir)
     parser.add_argument('--from-db', dest="from_db",
             action="store_true", default=True,
             help="Use the information from the jobs:completed list in Redis")
